@@ -7,6 +7,7 @@ const projects = [
       "Intelligent productivity and workflow management platform designed to streamline daily tasks and boost efficiency.",
     tags: ["React", "Full-Stack", "Productivity"],
     github: "https://github.com/IsHa0102/auraboard",
+    live: "https://auraboard-rho.vercel.app/",
   },
   {
     title: "RealityLens",
@@ -72,7 +73,7 @@ const ProjectsSection = () => (
             </div>
 
             <div className="flex gap-3">
-              {/* GitHub Link */}
+              {/* GitHub */}
               <a
                 href={p.github}
                 target="_blank"
@@ -82,13 +83,17 @@ const ProjectsSection = () => (
                 <Github size={16} />
               </a>
 
-              {/* External Link (optional later) */}
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <ExternalLink size={16} />
-              </a>
+              {/* Live link ONLY if exists */}
+              {p.live && (
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ExternalLink size={16} />
+                </a>
+              )}
             </div>
           </div>
         ))}
