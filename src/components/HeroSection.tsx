@@ -14,7 +14,7 @@ const HeroSection = () => {
             </p>
 
             <h1 className="font-display font-extrabold text-6xl lg:text-7xl xl:text-[84px] text-foreground leading-[1.05] mb-6">
-              Isha testing
+              Isha Sharma
             </h1>
 
             <p className="text-base lg:text-lg font-body text-muted-foreground leading-relaxed max-w-md mb-10">
