@@ -34,13 +34,13 @@ const HeroSection = () => {
 
           {/* Image */}
           <div className="order-1 md:order-2 flex justify-center opacity-0 animate-fade-in-up animation-delay-200">
-            <div className="relative w-72 h-80 lg:w-80 lg:h-[22rem]">
+            <div className="relative w-64 h-64 lg:w-80 lg:h-80">
               <img
                 src={profileImage}
                 alt="Isha Sharma — Full-Stack Developer"
-                className="w-full h-full object-cover rounded-xl shadow-lg"
+                className="w-full h-full object-cover rounded-full shadow-lg"
               />
-              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-xl border border-primary/20 -z-10" />
+              <div className="absolute -bottom-2 -right-2 w-full h-full rounded-full border border-primary/20 -z-10" />
             </div>
           </div>
         </div>
