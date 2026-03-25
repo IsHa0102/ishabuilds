@@ -10,6 +10,14 @@ const projects = [
     live: "https://auraboard-rho.vercel.app/",
   },
   {
+    title: "AI Salary Predictor",
+    description:
+      "Full-stack ML application that predicts annual salaries based on job role, experience level, and company details. Built with XGBoost, served via FastAPI backend, and deployed with a Streamlit frontend.",
+    tags: ["ML", "XGBoost", "FastAPI", "Streamlit"],
+    github: "https://github.com/IsHa0102/salary-predictor",
+    live: "https://salary-predictor-gfxfy4qj9kkssnvx235puk.streamlit.app/",
+  },
+  {
     title: "RealityLens",
     description:
       "AI-powered artifact detection application leveraging computer vision to identify and classify real-world objects.",
@@ -91,7 +99,6 @@ const ProjectsSection = () => (
               ))}
             </div>
 
-            {/* subtle divider */}
             <div className="mt-5 h-[1px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
           </div>
         ))}
