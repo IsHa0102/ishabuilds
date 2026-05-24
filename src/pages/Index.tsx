@@ -1,23 +1,32 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const Index = () => (
-  <>
-    <Navbar />
-    <HeroSection />
-    <AboutSection />
-    <SkillsSection />
-    <ProjectsSection />
-    <ServicesSection />
-    <ContactSection />
-    <Footer />
-  </>
-);
+const Index = () => {
+  useScrollReveal();
+
+  return (
+    <>
+      <CustomCursor />
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <ServicesSection />
+      <ContactSection />
+      <Footer />
+    </>
+  );
+};
 
 export default Index;

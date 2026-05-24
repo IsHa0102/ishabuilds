@@ -1,13 +1,13 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Auraboard",
+    title: "FlowDesk",
     description:
-      "Intelligent productivity and workflow management platform designed to streamline daily tasks and boost efficiency.",
-    tags: ["React", "Full-Stack", "Productivity"],
-    github: "https://github.com/IsHa0102/auraboard",
-    live: "https://auraboard-rho.vercel.app/",
+      "Full-stack productivity and wellness app with AI-powered mood-aware planning, task management, mood journaling, wellness tracking, a canvas-based vision board (Konva.js), and a weekly planner — packaged as an iOS/Android app via Capacitor.",
+    tags: ["Next.js 16", "TypeScript", "PostgreSQL", "Claude AI", "Konva.js", "Capacitor"],
+    github: "https://github.com/IsHa0102/Flowdesk",
+    live: "https://myflowdesk-rho.vercel.app/",
   },
   {
     title: "AI Salary Predictor",
@@ -20,8 +20,8 @@ const projects = [
   {
     title: "RealityLens",
     description:
-      "AI-powered artifact detection application leveraging computer vision to identify and classify real-world objects.",
-    tags: ["AI/ML", "Computer Vision", "Python"],
+      "Real-time object detection Android app using CameraX and ML Kit with confidence scoring, speech synthesis (TTS), tap-to-capture, and persistent object tracking with history storage.",
+    tags: ["Kotlin", "ML Kit", "CameraX", "TTS", "Node.js"],
     github: "https://github.com/IsHa0102/RealityLens",
   },
   {
@@ -39,70 +39,124 @@ const projects = [
     github: "https://github.com/IsHa0102/churn-prediction-system",
   },
   {
-    title: "Mini Shopify Platform",
+    title: "Mini Shopify – Multi-Store Platform",
     description:
-      "Full-stack e-commerce application with admin dashboard, cart system, order management, and secure checkout.",
-    tags: ["Next.js", "Prisma", "Full-Stack"],
+      "Full-stack multi-store e-commerce platform where merchants can create independent storefronts with isolated product and order management, session-based cart, and persistent checkout.",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "TailwindCSS"],
     github: "https://github.com/IsHa0102/mini-shopify-platform",
+    live: "https://mini-shopify-platform.vercel.app/",
   },
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="py-28">
-    <div className="container mx-auto px-6 max-w-5xl">
+  <section id="projects" className="py-28 bg-[#141414]">
+    <div className="mx-auto px-8 max-w-7xl">
 
-      <h2 className="font-display font-bold text-3xl text-foreground mb-4">
-        Featured Work
-      </h2>
-      <div className="w-12 h-[2px] bg-primary mb-12" />
+      {/* Section header */}
+      <div className="mb-16 reveal">
+        <p className="font-body text-[0.7rem] uppercase tracking-[0.25em] text-[#D4A853] mb-4">
+          // 04 Projects
+        </p>
+        <h2 className="font-display italic font-bold text-[clamp(40px,5vw,56px)] leading-none text-[#F5F0E8] mb-6">
+          Featured Work
+        </h2>
+        <div className="h-[1px] w-full bg-[#2A2A2A] reveal-line" />
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {projects.map((p) => (
-          <div
-            key={p.title}
-            className="group p-6 rounded-xl border border-border bg-background 
-            hover:bg-primary/5 hover:border-primary/20 
-            hover:shadow-sm hover:-translate-y-1 
-            transition-all duration-300"
-          >
-            <div className="flex items-start justify-between mb-3">
-              <h3 className="font-display font-semibold text-foreground text-lg">
-                {p.title}
-              </h3>
+      {/* Project list */}
+      <div className="divide-y divide-[#2A2A2A]">
+        {projects.map((p, i) => {
+          const num = String(i + 1).padStart(2, "0");
+          const watermark = p.tags[0].toUpperCase();
+          const revealClass = i % 2 === 0 ? "reveal-from-left" : "reveal-from-right";
 
-              <div className="flex gap-3 opacity-70 group-hover:opacity-100 transition">
-                <a href={p.github} target="_blank" rel="noopener noreferrer">
-                  <Github size={16} className="hover:text-primary transition" />
+          return (
+            <div
+              key={p.title}
+              className={`group relative flex flex-col md:flex-row items-start gap-6 md:gap-8 py-10 px-4 overflow-hidden transition-colors duration-400 hover:bg-[#1F1A14] ${revealClass}`}
+              style={{ transitionDelay: `${i * 0.06}s` }}
+            >
+              {/* Gold top line on hover */}
+              <div className="absolute top-0 left-0 h-[2px] w-0 bg-[#D4A853] group-hover:w-full transition-all duration-500" />
+
+              {/* Background watermark */}
+              <span
+                className="absolute right-4 top-1/2 -translate-y-1/2 font-display font-black select-none pointer-events-none leading-none hidden md:block"
+                style={{
+                  fontSize: "clamp(60px,8vw,110px)",
+                  WebkitTextStroke: "1px rgba(212,168,83,0.07)",
+                  color: "transparent",
+                  opacity: 1,
+                }}
+              >
+                {watermark}
+              </span>
+
+              {/* Project number */}
+              <span
+                className="font-display font-black text-[#D4A853] leading-none shrink-0 select-none"
+                style={{ fontSize: "clamp(48px,6vw,80px)", opacity: 0.28 }}
+              >
+                {num}
+              </span>
+
+              {/* Content */}
+              <div className="flex-1 relative z-10">
+                <h3 className="font-display italic text-[clamp(20px,2.5vw,28px)] text-[#F5F0E8] mb-3 group-hover:text-[#D4A853] transition-colors duration-300">
+                  {p.title}
+                </h3>
+                <p className="font-body text-sm text-[#8A8578] leading-relaxed mb-5 max-w-2xl">
+                  {p.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1 text-xs font-body border border-[#2A2A2A] text-[#8A8578] group-hover:border-[#2A2A2A] hover:!border-[#D4A853] hover:!text-[#D4A853] transition-all duration-200"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Links */}
+              <div className="flex md:flex-col gap-4 shrink-0 relative z-10">
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-[#D4A853] text-[0.7rem] font-body uppercase tracking-[0.1em] group/lnk"
+                >
+                  <Github size={13} />
+                  <span className="relative">
+                    Code
+                    <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#D4A853] group-hover/lnk:w-full transition-all duration-300" />
+                  </span>
+                  <ArrowUpRight size={12} className="opacity-0 group-hover/lnk:opacity-100 transition-opacity" />
                 </a>
 
                 {p.live && (
-                  <a href={p.live} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink size={16} className="hover:text-primary transition" />
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-[#D4A853] text-[0.7rem] font-body uppercase tracking-[0.1em] group/lnk"
+                  >
+                    <ExternalLink size={13} />
+                    <span className="relative">
+                      Live
+                      <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#D4A853] group-hover/lnk:w-full transition-all duration-300" />
+                    </span>
+                    <ArrowUpRight size={12} className="opacity-0 group-hover/lnk:opacity-100 transition-opacity" />
                   </a>
                 )}
               </div>
             </div>
-
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
-              {p.description}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {p.tags.map((t) => (
-                <span
-                  key={t}
-                  className="px-3 py-1 rounded-full text-xs 
-                  bg-primary/10 text-primary font-medium"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-5 h-[1px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
-          </div>
-        ))}
+          );
+        })}
       </div>
+
     </div>
   </section>
 );
